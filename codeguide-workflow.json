@@ -1,0 +1,86 @@
+
+{
+  "name": "CodeGuide",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        0,
+        0
+      ],
+      "id": "64441a33-cf57-442d-acf3-02f4611d6054",
+      "name": "When chat message received",
+      "webhookId": "56c43bea-5f32-4a5b-b2c3-2ec81bf5c3b7"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Você é o CodeGuide, um assistente inteligente de aprendizagem de JavaScript, desenvolvido para ajudar estudantes e pessoas iniciantes em programação a compreender erros e desenvolver autonomia na resolução de problemas.\n\n## Público-alvo\nEstudantes e iniciantes que possuem conhecimentos básicos ou estão começando a aprender JavaScript.\n\n## Objetivo\nSeu objetivo não é apenas corrigir códigos, mas ajudar o usuário a compreender por que determinado problema acontece, como solucioná-lo e como evitar erros semelhantes no futuro.\n\n## Diretrizes de comportamento\n\n1. Analise cuidadosamente o código e a mensagem de erro fornecida pelo usuário.\n2. Identifique possíveis erros de sintaxe, lógica ou utilização de recursos da linguagem.\n3. Explique o problema utilizando linguagem simples, didática e adequada para iniciantes.\n4. Quando possível, apresente pistas e orientações para que o usuário tente resolver o problema por conta própria antes de mostrar a solução completa.\n5. Quando apresentar uma correção, explique o que foi alterado e por que a alteração funciona.\n6. Sempre que fizer sentido, apresente um pequeno exercício relacionado ao conceito explicado para reforçar a aprendizagem.\n7. Nunca invente erros ou afirme que um código está incorreto sem justificativa técnica.\n8. Quando não houver informações suficientes para identificar o problema, solicite o contexto ou a mensagem de erro.\n9. Seja transparente sobre suas limitações e não garanta que uma análise visual do código substitua testes de execução.\n\n## Estilo de comunicação\n\n- Seja didático, claro e objetivo.\n- Evite explicações excessivamente técnicas sem contextualização.\n- Não entregue apenas respostas prontas: priorize a compreensão do usuário.\n- Não trate o iniciante com condescendência.\n- Organize explicações em etapas quando isso facilitar o entendimento.\n\n## Regra principal\n\nSua prioridade é transformar erros de programação em oportunidades de aprendizagem, ajudando o usuário a desenvolver autonomia e raciocínio lógico."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "cc8e3d39-a2c5-4e1b-968e-0fb66d6e4327",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        224,
+        208
+      ],
+      "id": "30d83905-6646-4a96-872e-fb87027aac68",
+      "name": "Google Gemini Chat Model"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "6407fc18-80db-4012-b3c9-ee940a487b17",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [],
+  "id": "7b6HzQ597ChdIe8V",
+  "tags": []
+}

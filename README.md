@@ -59,4 +59,4 @@ A documentação completa do projeto está disponível em:
 
 ## Status do projeto
 
-Primeira versão funcional desenvolvida para fins educacionais e de portfólio.
+Primeira versão funcional do CodeGuide, com fluxo de automação configurado, integração com Google Gemini e testes manuais realizados.

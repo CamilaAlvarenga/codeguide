@@ -17,7 +17,7 @@ O CodeGuide é um assistente educacional desenvolvido para auxiliar pessoas que 
 ## Tecnologias utilizadas
 
 - **n8n:** construção e integração do fluxo de automação.
-- **Google Gemini:** modelo de inteligência artificial responsável pela interpretação das mensagens e geração das respostas.
+- **Google Gemini 3.1 Flash-Lite:** modelo de linguagem utilizado para interpretar as mensagens e gerar as respostas do assistente.
 
 ## Como funciona
 
